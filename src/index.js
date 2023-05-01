@@ -31,7 +31,7 @@ client.once(Events.ClientReady, () => {
 });
 
 client.on(Events.InteractionCreate, async interaction => {
-	if (!interaction.isChatInputCommand()) return;
+	// if (!interaction.isChatInputCommand()) return;
 
 	if (interaction.isCommand()) {
 		const command = client.commands.get(interaction.commandName);
@@ -46,25 +46,6 @@ client.on(Events.InteractionCreate, async interaction => {
 			} else {
 				await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 			}
-		}
-	}
-	else if (interaction.isButton()) {
-		if (
-			interaction.message.interaction.commandName === "q" &&
-			interaction.customId === "refresh"
-		) {
-			getData(QRANDOM_API_URL)
-				.then(async (data) => { 
-					await interaction.message.edit({ 
-						embeds: [qEmbed(
-							data["author"], 
-							data["content"],
-							data["tags"]
-						)],
-					});
-				})
-				.catch(err => { throw err })
-				.finally(() => { interaction.deferUpdate() });
 		}
 	}
 });

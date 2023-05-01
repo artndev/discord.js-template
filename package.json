@@ -1,14 +1,12 @@
 {
-  "name": "quotes_bot",
+  "name": "template",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
     "s": "node ./src/deploy-commands.js && node ./src/index.js",
-    "r": "node ./src/deploy-commands.js",
-    "m": "node ./src/db/setup.js",
-    "mt": "node ./src/db/test.js"
+    "r": "node ./src/deploy-commands.js"
   },
   "keywords": [],
   "author": "",
